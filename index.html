@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐播放器</title>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="./图片/logo.jpg" type="image/jpg">  
+    <link rel="stylesheet" href="./代码/style.css">
+    <script src="./代码/script.js" defer></script>
+</head>
+<body>
+    <p class="author-info">钟焕月_25216950310</p>
+    <div class="music-player">
+        <div class="player-header">
+            <div class="player-title">
+                <i class="fas fa-music"></i> 音乐播放器
+            </div>
+            <button class="playlist-btn" id="playlistToggle">
+                <i class="fas fa-list"></i> 播放列表
+            </button>
+        </div>
+        
+        <div class="album-container">
+            <div class="album-art playing" id="albumArt">
+                <div class="album-center"></div>
+                <img src="./图片/瞬间.jpg" alt="专辑封面">
+            </div>
+            
+            <div class="song-info">
+                <div class="song-title" id="songTitle">瞬间</div>
+                <div class="song-artist" id="songArtist">G.E.M.邓紫棋</div>
+            </div>
+            
+            <div class="time-info">
+                <span id="currentTime">00:00</span>
+                <span>/</span>
+                <span id="duration">04:06</span>
+            </div>
+            
+            <div class="progress-container" id="progressContainer">
+                <div class="progress" id="progress"></div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="control-btn" id="prevBtn" title="上一曲">
+                <i class="fas fa-step-backward"></i>
+            </button>
+            <button class="control-btn play-pause" id="playPauseBtn" title="播放/暂停">
+                <i class="fas fa-pause"></i>
+            </button>
+            <button class="control-btn" id="nextBtn" title="下一曲">
+                <i class="fas fa-step-forward"></i>
+            </button>
+        </div>
+        
+        <div class="volume-container">
+            <div class="volume-icon">
+                <i class="fas fa-volume-up"></i>
+            </div>
+            <div class="volume-slider" id="volumeSlider">
+                <div class="volume-progress" id="volumeProgress"></div>
+            </div>
+        </div>
+        
+        <div class="now-playing">
+            <div class="now-playing-left">
+                <i class="fas fa-headphones"></i>
+                <span>正在播放: <span id="nowPlayingSong">瞬间 - G.E.M.邓紫棋</span></span>
+            </div>
+            <div class="now-playing-right">
+                <button class="method" id="method" title="播放模式"></button>
+                <button class="speed" id="speed" title="播放速度"></button>
+            </div>
+        </div>
+        
+        <div class="playlist" id="playlist">
+            <div class="playlist-header">
+                <div class="playlist-title">
+                    <i class="fas fa-list-ol"></i> 播放列表
+                </div>
+                <button class="close-playlist" id="closePlaylist" title="关闭">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="playlist-items">
+                <div class="playlist-item active" data-src="http://music.163.com/song/media/outer/url?id=34723529.mp3">
+                    <img src="./图片/瞬间.jpg" alt="专辑封面">
+                    <div class="playlist-item-info">
+                        <div class="playlist-item-title">瞬间</div>
+                        <div class="playlist-item-artist">G.E.M.邓紫棋</div>
+                    </div>
+                    <div class="playlist-item-duration">04:06</div>
+                </div>
+                
+                <div class="playlist-item" data-src="http://music.163.com/song/media/outer/url?id=2161934816.mp3">
+                    <img src="./图片/4.jpg" alt="专辑封面">
+                    <div class="playlist-item-info">
+                        <div class="playlist-item-title">向阳而生</div>
+                        <div class="playlist-item-artist">华晨宇</div>
+                    </div>
+                    <div class="playlist-item-duration">11:42</div>
+                </div>
+
+                <div class="playlist-item" data-src="http://music.163.com/song/media/outer/url?id=2043909561.mp3">
+                    <img src="./图片/2.png" alt="专辑封面">
+                    <div class="playlist-item-info">
+                        <div class="playlist-item-title">Who Says</div>
+                        <div class="playlist-item-artist">Selena Gomez</div>
+                    </div>
+                    <div class="playlist-item-duration">03:15</div>
+                </div>
+                
+                <div class="playlist-item" data-src="http://music.163.com/song/media/outer/url?id=400162670.mp3">
+                    <img src="./图片/3.jpg" alt="专辑封面">
+                    <div class="playlist-item-info">
+                        <div class="playlist-item-title">Kiss Goodbye</div>
+                        <div class="playlist-item-artist">王力宏</div>
+                    </div>
+                    <div class="playlist-item-duration">04:30</div>
+                </div>
+                
+                <div class="playlist-item" data-src="http://music.163.com/song/media/outer/url?id=2100346386.mp3">
+                    <img src="./图片/5.jpg" alt="专辑封面">
+                    <div class="playlist-item-info">
+                        <div class="playlist-item-title">过季短袖</div>
+                        <div class="playlist-item-artist">廖俊涛</div>
+                    </div>
+                    <div class="playlist-item-duration">04:09</div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- 隐藏的 audio 元素，用于实际播放 -->
+        <audio id="audio" preload="metadata"></audio>
+    </div>
+</body>
+</html>
